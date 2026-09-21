@@ -148,7 +148,7 @@ GROUP BY
     r.region_name,
     s.store_name
 ORDER BY
-    employee_count DESC;
+    employee_count ASC;
 """
 
 # === CHOOSE A VISUALIZATION ===
@@ -301,9 +301,9 @@ def main() -> None:
 
     The result has one row per store.
 
-    I observed ...
+    I observed that changing the ORDER BY statement from DESC to ASC changed the order of the results from highest employee count first to lowest employee count first.
 
-    Based on this result, I would next like to explore ...
+    Based on this result, I would next like to explore other ways to compare stores, regions, and employees.
     """)
 
     LOG.info("-------------------------------")
