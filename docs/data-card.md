@@ -1,82 +1,40 @@
 # Data Card
 
-This project provides four data domains for practicing Python and SQL
-with related tables.
+This project uses synthetic retail data generated for this course.
 
-## Retail
+The data is designed for practicing SQL joins, grouping, filtering, aggregation, and visualization with related tables.
 
-**Source:** Synthetic data generated for this course.
-The data is designed for practicing SQL joins, grouping,
-filtering, aggregation, and visualization.
+## Retail Data
 
-Files:
+The dataset contains four related CSV files:
 
 - **region.csv** - one row per business region
 - **store.csv** - one row per store
 - **employee.csv** - one row per employee
 - **sale.csv** - one row per sale
 
-Relationships:
+## Relationships
 
-- region → store → employee
-- A region has many stores (1:M).
-- A store has many employees (1:M).
-- A store can also have many sales (1:M).
+The tables are connected using shared keys:
 
-## Library
+- A region can have many stores.
+- A store belongs to one region.
+- A store can have many employees.
+- An employee belongs to one store.
+- A store can have many sales.
+- A sale belongs to one store.
 
-**Source:** Synthetic data generated for this course.
-The data is designed for practicing SQL joins, grouping,
-filtering, aggregation, and visualization.
+The `region_id` field connects the region and store tables.
 
-Files:
+The `store_id` field connects the store table with the employee and sale tables.
 
-- **state.csv** - one row per state
-- **branch.csv** - one row per library branch
-- **book.csv** - one row per book
-- **review.csv** - one row per book review
+## Analysis
 
-Relationships:
+The retail data is used to explore store sales performance, including:
 
-- state → branch → book → review
-
-## Medical Informatics
-
-**Source:** Synthetic data generated for this course.
-No records represent real patients or healthcare encounters.
-The data is designed for practicing SQL with related
-healthcare-style data without using real patient information.
-
-Files:
-
-- **clinic.csv** - one row per clinic
-- **patient.csv** - one row per synthetic patient
-- **visit.csv** - one row per visit
-- **lab_result.csv** - one row per lab result
-
-Relationships:
-
-- clinic → patient → visit → lab_result
-
-## MovieLens
-
-**Source:** MovieLens Latest Small dataset from GroupLens Research.
-The dataset was last updated in September 2018. :contentReference[oaicite:0]{index=0}
-
-MovieLens Latest datasets may change over time and are not intended
-for reporting research results. :contentReference[oaicite:1]{index=1}
-
-The dataset contains approximately:
-
-- 100,000 movie ratings
-- 3,600 tag applications
-- 9,000 movies
-- 600 users
-
-### Source and documentation
-
-MovieLens Latest Datasets
-<https://grouplens.org/datasets/movielens/latest/>
-
-This project uses MovieLens for learning and practicing
-data analysis with related tables.
+- total sales by store
+- total sales by region
+- total sales by store type
+- the relationship between store size and total sales
+- sales per employee
+- the relationship between employee count and total sales

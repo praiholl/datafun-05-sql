@@ -12,7 +12,11 @@
 # ============================================================
 
 [project]
-name = "datafun-05-sql" # CUSTOM: Package distribution name (use lowercase and dashes).
+name = "datafun-05-sql"
+description = "A Python and SQL project exploring factors related to store sales performance."
+authors = [
+    { name = "Holly Praiswater"}
+]
 readme = "README.md"
 requires-python = ">=3.14"
 version = "1.1.0"

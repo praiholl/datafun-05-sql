@@ -8,8 +8,8 @@
 # ///
 """src/datafun/notebook.py - Reactive SQL explorer.
 
-Author: Denise Case
-Date: 2026-08
+Author: Holly Praiswater
+Date: 2026-09
 
 REQUIREMENTS:
 
@@ -131,9 +131,9 @@ def _title():
     Explore related data interactively.
     The data has two one-to-many relationships: **region:store:employee.**
     How to use: Choose a region.
-    SQL will join the related tables andreturn the result to Python.
-    | [Project Source](https://github.com/denisecase/datafun-05-sql/blob/main/src/datafun/notebook.py)
-    | [Project Docs](https://denisecase.github.io/datafun-05-sql/)
+    SQL will join the related tables and return the result to Python.
+    | [Project Source](https://github.com/praiholl/datafun-05-sql/blob/main/src/datafun/notebook.py)
+    | [Project Docs](https://praiholl.github.io/datafun-05-sql/)
     ---
     """)
     return

@@ -9,98 +9,79 @@
 [![Zensical docs](https://img.shields.io/badge/Zensical-docs-purple)](https://zensical.org/)
 [![MIT](https://img.shields.io/badge/license-see%20LICENSE-yellow.svg)](./LICENSE)
 
-> Professional Python project: relational data and SQL analytics with a marimo app
-> for parameterized queries (e.g. choose a region to update the chart)
+> A Python and SQL project exploring factors related to store sales performance.
 
-Notebooks combine narration and code.
-This project works on **related tabular data files** using SQL and Python.
-It includes a reactive marimo app for interacting with the related data.
+This project uses related retail data to explore store sales using SQL, SQLite, pandas, and Python visualizations.
 
-Note: With marimo, analysts can build interactive web apps!
-It's a whole new skill set, and not easy, but it does create
-engaging reports that showcase your analytic skills.
+The analysis compares sales across stores and examines whether store size and employee count are related to total sales. It also compares sales per employee to account for differences in staffing between stores.
+
+The retail data is stored in four related tables:
+
+- regions
+- stores
+- employees
+- sales
+
+These tables are connected using shared keys such as `region_id` and `store_id`.
 
 ## Motivation
 
-We've mostly worked with data stored in files.
-Organizations often keep larger collections of related data in databases,
-where we can ask for the information we need
-instead of loading everything at once.
+Business data is often stored across multiple related tables rather than in a single file. SQL makes it possible to connect these tables and analyze information from different parts of a business.
 
-In this project, we'll use SQL to ask questions of data stored in a database.
-We'll select useful records, filter and organize results,
-summarize groups, and combine related information
-so it can be used in further analysis.
+For this project, I wanted to explore store sales performance and determine whether factors such as store size and number of employees appear to be related to total sales. I also wanted to compare sales per employee to see how store performance changes when staffing levels are considered.
 
 ## This Project
 
-This project introduces **relational data and SQL**
-used when storing structured data in tables.
-Analysts are typically highly skilled at both SQL and Python.
+This project uses relational retail data and SQL to analyze store sales performance.
 
-Sample datasets are provided in the `data/raw` folder
-across several topic domains:
+The analysis uses four related tables containing information about regions, stores, employees, and sales. SQL queries combine and summarize these tables to explore several aspects of the data.
 
-- **retail** - with regions / stores / employees (the worked example)
-- **library** - with state / branch / books
-- **health** - with clinic / patient / visit
-- **movies** - using the **MovieLens** small dataset
+The project examines:
 
-Each domain has related tables.
-Run the retail example,
-and implement a similar project either by expanding the retail work,
-or choosing one of the other recommended domains.
+- total sales by store
+- total sales by region
+- total sales by store type
+- the relationship between store size and total sales
+- sales per employee
+- the relationship between employee count and total sales
+
+The analysis uses SQLite for the relational database, SQL for querying the data, pandas for working with query results, and Python for calculating correlations and creating visualizations.
 
 ## Produced Artifacts
 
-This project produces the same results in several useful forms.
+This project produces several outputs from the retail sales analysis:
 
-- [**Reactive App (marimo)**](https://denisecase.github.io/datafun-05-sql/app/)
-  - run the analysis interactively in a browser
+- a SQLite database containing the related retail tables
+- SQL query results in `project.log`
+- correlation calculations comparing store characteristics with total sales
+- scatter plots showing the relationships between store size, employee count, and total sales
 
-- [**Reactive Notebook (marimo)**](./src/datafun/notebook.py)
-  - view the Python source used to create the reactive app
 
 ## Initial Results
 
-![One analyst-selected chart](docs/images/first-chart.png)
+### Store Size vs. Total Sales
 
-![Marimo reactive app preview](docs/images/marimo-local-preview.png)
+![Store Size vs. Total Sales](docs/images/store-size-vs-sales.png)
+
+The correlation between store size and total sales was 0.185, indicating a weak positive relationship. Larger stores did not necessarily have higher total sales.
+
+### Employee Count vs. Total Sales
+
+![Employee Count vs. Total Sales](docs/images/employee-count-vs-sales.png)
+
+The correlation between employee count and total sales was 0.335, also indicating a weak positive relationship. This relationship was stronger than the relationship between store size and total sales, but it was still weak.
+
+Sales per employee also varied across stores, showing that stores with the highest total sales were not always the stores with the highest sales per employee.
 
 ## Important Folders and Files
 
-- **data/*** - raw CSV input files
-- **artifacts/** - generated database files, logs, or reports
-- **docs/** - project narrative and documentation
-- **src/datafun/** - project logic
-- **zensical.toml** - update documentation site metadata
+- **data/retail/** - CSV input files and the generated SQLite database
+- **docs/images/** - generated charts from the analysis
+- **src/datafun/app.py** - main Python and SQL analysis
+- **project.log** - logged query results, correlations, and project output
+- **zensical.toml** - documentation site configuration
+- **pyproject.toml** - project metadata and dependencies
 
-## Common Workflow
-
-Follow the
-[step-by-step workflow guide](https://denisecase.github.io/pro-analytics-02/workflow-b-apply-example-project/)
-carefully.
-
-## Challenges
-
-Challenges are expected.
-Sometimes instructions may not quite match your operating system.
-When issues occur, share screenshots, error messages,
-and details about what you tried.
-Working through issues is part of implementing professional projects.
-
-## Success
-
-After completing Phase 1. **Start & Run**, you'll have the example project,
-running on your machine.
-A new file `project.log` will appear in the root project folder
-and running the example script will print out:
-
-```shell
-===================================
-END main() - Executed successfully!
-===================================
-```
 
 ## Command Reference
 
@@ -119,7 +100,7 @@ change directory (cd) into the new folder,
 and run `code .` to open only this example project in VS Code:
 
 ```shell
-git clone https://github.com/denisecase/datafun-05-sql
+git clone https://github.com/praiholl/datafun-05-sql
 
 cd datafun-05-sql
 code .
@@ -219,11 +200,7 @@ Press `Ctrl c` (both keys together) or `Ctrl+Z` then `Enter` on Windows.
 
 ## Documentation
 
-- [Documentation](https://denisecase.github.io/datafun-05-sql/)
-
-## Data Card
-
-- [Palmer Penguins Data Card](./docs/data-card.md)
+- [Documentation](https://praiholl.github.io/datafun-05-sql/)
 
 ## Annotations
 
